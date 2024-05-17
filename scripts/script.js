@@ -4,30 +4,6 @@ function affciherResultat(resultat,nbrMots){
     affichageScore.innerText = `${resultat} | ${nbrMots}`
 }
 
-//Détermine sur le joueurs joue avec des mots ou des phrases
-/*function choisirPhrasesOuMots(){
-  let choixPhraseOuMot = prompt("Voulez-vous taper des mots ou des phrases ? (Taper mots ou phrases)")
-    while(choixPhraseOuMot !== "mots" && choixPhraseOuMot !== "phrases"){
-       choixPhraseOuMot = prompt("Voulez-vous taper des mots ou des phrases ? (Taper mots ou phrases)")
-    }
-    return choixPhraseOuMot
-}*/
-
-/*function lancerBoucleDeJeu(tableauDeMots){
-
-    let score = 0
-
-    for(let i=0; i<tableauDeMots.length; i++){
-
-        let motUtilisateur = prompt("Taper le mot: " + tableauDeMots[i])
-    
-        if (motUtilisateur === tableauDeMots[i]) {
-            score ++
-        }
-    }
-    return score
-}*/
-
 function afficherProposition(motafficher){
     let zoneProposition = document.querySelector(".zoneProposition")
     zoneProposition.innerText = motafficher
@@ -39,8 +15,7 @@ function afficherEmail(nom, email, score) {
 }
 
 function lancerJeu(){
-//    let choixPhraseOuMot= choisirPhrasesOuMots()
-    initAddEventListenerPopup()
+   initAddEventListenerPopup()
 
     let i=0
     let score = 0
@@ -96,16 +71,4 @@ function lancerJeu(){
             afficherEmail(sujet, message, scoreEmail)
 
         })
-
-
-/*    if (choixPhraseOuMot === "mots"){
-        score = lancerBoucleDeJeu(listeMots)
-        nbrMotsPrposé = listeMots.length
-    }*/
-
-/*    if (choixPhraseOuMot == "phrases"){
-        score = lancerBoucleDeJeu(listePhrases)
-        nbrMotsPrposé = listePhrases.length
-    }*/ 
-
 }
