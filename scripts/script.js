@@ -14,6 +14,54 @@ function afficherEmail(nom, email, score) {
     location.href = mailto
 }
 
+function validerNom(nom){
+    const regex = new RegExp("[a-zA-Z]{2}")
+    let valider = regex.test(nom)
+    if (!valider) {
+        throw new Error('Le nom contient moins de 2 caractère')
+    }
+}
+
+function validerEmail(email){
+    const regex = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]+")
+    let valider = regex.test(email)
+    if (!valider) {
+        throw new Error("L'Email est incorrect")
+    }
+}
+
+function afficherMessageErreur(message){
+    let spanErrorMessage = document.getElementById("erreurMessage")
+
+    if(!spanErrorMessage){
+        let popup = document.querySelector(".popup")
+        spanErrorMessage = document.createElement("span")
+        spanErrorMessage.id = "erreurMessage"
+        popup.append(spanErrorMessage)
+    }
+
+    spanErrorMessage.innerText = message
+    
+}
+
+function gererFormulaire(score,scoreMax){
+    try{
+        let baliseNom = document.getElementById("nom")
+        let nom = baliseNom.value
+        validerNom(nom)
+
+        let baliseEmail = document.getElementById("email")
+        let email = baliseEmail.value
+        validerEmail(email)
+        afficherMessageErreur("")
+        scoreEmail = `${score} / ${scoreMax}`
+        afficherEmail(nom, email, scoreEmail)
+
+    } catch (error) {
+        afficherMessageErreur(error.message)
+    }
+}
+
 function lancerJeu(){
    initAddEventListenerPopup()
 
@@ -62,13 +110,7 @@ function lancerJeu(){
 
         form.addEventListener("submit", (event) => {
             event.preventDefault()
-            let sujet = document.getElementById("nom").value
-            let message = document.getElementById("email").value
-
-            console.log(sujet)
-            console.log(message)
-            scoreEmail = `${score} / ${[i]}`
-            afficherEmail(sujet, message, scoreEmail)
+            gererFormulaire(score,[i])
 
         })
 }

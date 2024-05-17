@@ -1,4 +1,4 @@
-let inputText = document.getElementById("inputEcriture")
+/*let inputText = document.getElementById("inputEcriture")
 let boutonValidation = document.getElementById("btnValiderMot")
 
 let affichageMotPropose = document.querySelector(".zoneProposition")
@@ -10,6 +10,6 @@ console.log(inputText)
 console.log(boutonValidation)
 console.log(affichageMotPropose)
 console.log(affichageScore)
-console.log(boutonRadio)
+console.log(boutonRadio)*/
 
 lancerJeu()
